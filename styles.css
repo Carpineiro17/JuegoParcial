@@ -3,33 +3,39 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #f5f5f5; /* Color de fondo de la página */
     margin: 0;
     padding: 20px;
 }
+/* Estilos para la pantalla de inicio del juego */
 #start-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Centra vertical y horizontalmente los elementos */
-    height: 100vh; /* Toma toda la altura de la pantalla */
-    width: 100%;
-    background-color: #b3e5fc; /* Color celeste bebé del fondo */
+    width: 100vw;  /* Ocupa todo el ancho visible */
+    height: 100vh;  /* Ocupa toda la altura visible */
+    text-align: center;  /* Alinea texto al centro */
+    
 }
+/* Estilos para el título principal en la pantalla de inicio */
 #start-screen h1 {
     color: #333; /* Color del texto */
     margin-bottom: 20px; /* Espacio inferior */
 }
+/* Estilos para el botón de inicio */
 #start-button {
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer;/*al posarse en el cursor*/
 }
+/* Estilos para la imagen en la pantalla de inicio */
 .img {
     max-width: 500px;
     height: auto;
 }
-/* Estilos adicionales para los párrafos de reglas y autor */
+/* Estilos para la descripción del juego */
 .game-description {
     text-align: center;
     max-width: 600px;
@@ -41,10 +47,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .game-description_text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    font-style: italic;
+    font-size: 16px;  /* Tamaño de fuente */
+    line-height: 1.6;  /* Altura de línea */
+    margin-bottom: 10px;  /* Margen inferior */
+    font-style: italic;  /* Estilo de fuente */
 }
 
 .game-description_rules {
@@ -58,21 +64,27 @@ body {
     font-style: italic;
     color: #666;
 }
+/* Estilos para el contenedor principal del juego */
 #game-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  /* Centra horizontalmente */
+    justify-content: center;  /* Centra verticalmente */
+    height: 100%;  /* Ocupa toda la altura disponible */
 }
+/* Estilos para el título principal en la pantalla del juego */
 #game-container h1 {
     color: #333;
     margin-bottom: 20px;
 }
+/* Estilos para el contenedor de la sopa de letras */
 #word-search-container {
     display: grid;
     grid-template-columns: repeat(12, 30px); /* Tamaño de las columnas */
     gap: 5px; /* Espacio entre elementos */
     margin-bottom: 20px;
 }
+/* Estilos para cada celda de la sopa de letras */
 #word-search-container div {
     width: 30px;
     height: 30px;
@@ -84,26 +96,33 @@ body {
     font-weight: bold; /* Estilo del texto */
     cursor: pointer;
 }
+/* Estilos para la celda seleccionada en la sopa de letras */
 #word-search-container div.selected {
     background-color: #5ab4fa; /* Color de fondo cuando está seleccionada */
 }
+/* Estilos para la celda correcta en la sopa de letras */
 #word-search-container div.correct {
     background-color: #3e4850; /* Color de fondo cuando está marcada como correcta */
 }
+/* Estilos para la lista de palabras a buscar */
 #word-list {
     margin-top: 20px;
 }
+/* Estilos para la lista desordenada dentro de la lista de palabras */
 #word-list ul {
     list-style-type: none;
     padding: 0;
 }
+/* Estilos para cada elemento de la lista de palabras */
 #word-list li {
     font-size: 18px;
     margin: 5px 0;
 }
+/* Estilos para la palabra encontrada en la lista */
 #word-list li.found {
     text-decoration: line-through; /* Tachado de las palabras encontradas */
 }
+/* Estilos para el mensaje de felicitación */
 #message {
     margin-top: 20px;
     font-size: 20px;
@@ -120,10 +139,46 @@ body {
     z-index: 1000; /* Capa superior */
     text-align: center;
 }
+/* Estilos para el botón de reinicio */
 #restart-button {
     display: none; /* Oculta el botón de reinicio inicialmente */
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+}
+/* Media query para pantallas de hasta 768px de ancho */
+@media (max-width: 768px) {
+    #word-search-container {
+        grid-template-columns: repeat(12, 25px);  /* 12 columnas de 25px cada una */
+    }
+
+    #word-search-container div {
+        width: 25px;  /* Ancho */
+        height: 25px;  /* Altura */
+    }
+
+    #word-list li {
+        font-size: 16px;  /* Tamaño de fuente */
+    }
+}
+
+/* Media query para pantallas de hasta 480px de ancho */
+@media (max-width: 480px) {
+    #word-search-container {
+        grid-template-columns: repeat(12, 20px);  /* 12 columnas de 20px cada una */
+    }
+
+    #word-search-container div {
+        width: 20px;  /* Ancho */
+        height: 20px;  /* Altura */
+    }
+
+    #word-list li {
+        font-size: 14px;  /* Tamaño de fuente */
+    }
+
+    .game-description {
+        max-width: 90%;  /* Ancho máximo del contenedor de descripción */
+    }
 }
