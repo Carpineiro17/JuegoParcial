@@ -1,12 +1,12 @@
-// Definición de las palabras a buscar
+//lista de palabras a buscar
 const words = ["CINTURON", "SEÑALES", "SEMAFORO", "PEATONES", "AUTO", "MOTO", "CHOQUE", "LUCES", "TRAFICO", "ESTACIONAR"];
-// Tamaño de la cuadrícula de la sopa de letras
+//Tamaño de la grilla
 const gridSize = 12;
-// Matriz que representa la sopa de letras
+//Matriz que representa la sopa de letras
 const grid = [];
-// Lista para almacenar las celdas seleccionadas por el jugador
+//lista para almacenar las celdas seleccionadas por el jugador
 let selectedCells = [];
-// Lista para almacenar las palabras encontradas
+//lista para almacenar las palabras encontradas
 let foundWords = [];
 // Elementos del DOM
 const wordSearchContainer = document.getElementById('word-search-container');
@@ -15,7 +15,6 @@ const restartButton = document.getElementById('restart-button');
 const startButton = document.getElementById('start-button');
 const startScreen = document.getElementById('start-screen');
 const gameContainer = document.getElementById('game-container');
-
 // Event listener para el botón de inicio
 startButton.addEventListener('click', () => {
     // Oculta la pantalla de inicio y muestra el contenedor del juego
@@ -24,7 +23,6 @@ startButton.addEventListener('click', () => {
     // Inicializa el juego
     init();
 });
-
 // Función para crear una cuadrícula vacía
 function createEmptyGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -46,7 +44,6 @@ function fillGridWithRandomLetters() {
         }
     }
 }
-
 // Función para comprobar si se puede colocar una palabra en una posición y dirección específicas
 function canPlaceWord(word, row, col, direction) {
     if (direction === 'horizontal' && col + word.length > gridSize) return false;
@@ -63,7 +60,6 @@ function canPlaceWord(word, row, col, direction) {
     }
     return true;
 }
-
 // Función para colocar una palabra en la cuadrícula
 function placeWord(word) {
     const directions = ['horizontal', 'vertical', 'diagonal'];
@@ -83,7 +79,6 @@ function placeWord(word) {
         }
     }
 }
-
 // Función para mostrar la cuadrícula en el DOM
 function displayGrid() {
     wordSearchContainer.innerHTML = '';
@@ -93,31 +88,21 @@ function displayGrid() {
             cell.textContent = grid[i][j];
             cell.dataset.row = i;
             cell.dataset.col = j;
-            // Manejo de eventos para la selección de celdas
             cell.addEventListener('mousedown', () => startSelection(cell));
-            cell.addEventListener('touchstart', () => startSelection(cell));
             cell.addEventListener('mouseenter', () => extendSelection(cell));
-            cell.addEventListener('touchmove', (event) => {
-                event.preventDefault(); // Prevenir el scroll en dispositivos móviles
-                extendSelection(cell);
-            });
             cell.addEventListener('mouseup', () => endSelection());
-            cell.addEventListener('touchend', () => endSelection());
             wordSearchContainer.appendChild(cell);
         }
     }
 }
-
 // Variable para controlar si se está seleccionando
 let isSelecting = false;
-
 // Función para iniciar la selección de celdas
 function startSelection(cell) {
     isSelecting = true;
     selectedCells.push(cell);
     cell.classList.add('selected');
 }
-
 // Función para extender la selección de celdas
 function extendSelection(cell) {
     if (isSelecting && !selectedCells.includes(cell)) {
@@ -125,13 +110,11 @@ function extendSelection(cell) {
         cell.classList.add('selected');
     }
 }
-
 // Función para finalizar la selección de celdas
 function endSelection() {
     isSelecting = false;
     checkSelection();
 }
-
 // Función para comprobar la selección y buscar palabras
 function checkSelection() {
     const word = selectedCells.map(cell => cell.textContent).join('');
@@ -152,7 +135,6 @@ function checkSelection() {
         selectedCells = [];
     }
 }
-
 // Función para marcar una palabra como encontrada en la lista
 function markWordAsFound(word) {
     const listItem = document.querySelector(`#word-list li[data-word="${word}"]`);
@@ -170,7 +152,6 @@ function checkCompletion() {
         restartButton.style.display = 'block';
     }
 }
-
 // Función para inicializar el juego
 function init() {
     grid.length = 0;
@@ -188,7 +169,6 @@ function init() {
     fillGridWithRandomLetters();
     displayGrid();
 }
-
 // Event listener para el botón de reinicio
 restartButton.addEventListener('click', () => {
     init();
