@@ -97,7 +97,10 @@ function displayGrid() {
             cell.addEventListener('mousedown', () => startSelection(cell));
             cell.addEventListener('touchstart', () => startSelection(cell));
             cell.addEventListener('mouseenter', () => extendSelection(cell));
-            cell.addEventListener('touchmove', () => extendSelection(cell));
+            cell.addEventListener('touchmove', (event) => {
+                event.preventDefault(); // Prevenir el scroll en dispositivos móviles
+                extendSelection(cell);
+            });
             cell.addEventListener('mouseup', () => endSelection());
             cell.addEventListener('touchend', () => endSelection());
             wordSearchContainer.appendChild(cell);
