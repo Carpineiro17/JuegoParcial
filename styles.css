@@ -142,10 +142,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Centra horizontal y verticalmente */
-    background-color: white; /* Color de fondo del mensaje */
+    background-color: white; 
     padding: 20px;
     border: 2px solid #5ab4fa; /* Borde del mensaje */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px; 
     z-index: 1000; /* Capa superior */
     text-align: center;
 }
@@ -164,8 +164,8 @@ body {
     }
 
     #word-search-container div {
-        width: 25px;  /* Ancho */
-        height: 25px;  /* Altura */
+        width: 25px; 
+        height: 25px;  
     }
 
     #word-list li {
@@ -178,18 +178,17 @@ body {
     #word-search-container {
         grid-template-columns: repeat(12, 20px);  /* 12 columnas de 20px cada una */
     }
-
+}
     #word-search-container div {
-        width: 20px;  /* Ancho */
-        height: 20px;  /* Altura */
+        width: 20px;  
+        height: 20px;  
     }
 
     #word-list li {
-        font-size: 14px;  /* Tamaño de fuente */
-    }
+        font-size: 14px; 
 
     .game-description {
-        max-width: 90%;  /* Ancho máximo del contenedor de descripción */
+        max-width: 90%;  
     }
 }
 
@@ -197,9 +196,9 @@ header {
     width: 100%;
     height: auto;
     background-image: url('imagenes/fondo.jpg');
-    background-size: cover; /* Asegura que la imagen cubra todo el área del header */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 /* Contenedor del header */
@@ -359,7 +358,6 @@ footer {
         display: none;
         position: absolute;
         background-color: var(--fifth_color);
-        /*min-width: 120px;*/
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;    
     }
@@ -388,9 +386,6 @@ footer {
         }
    
         .dropdown-content{
-            /*background: #B1B2FF;
-            border-radius: 50px 0px 0px 50px;
-            margin: 75px 0px 0px 0px;*/
             text-align: center;
             display: flex;
             justify-content: center;
